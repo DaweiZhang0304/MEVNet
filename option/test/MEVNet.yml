@@ -1,0 +1,29 @@
+model_name: mevnet
+seed: 1
+gpu_id: [0]
+
+network_g:
+  img_channel: 3 
+  width: 64 
+  middle_blk_num: 4
+  refine_blk_num: 6
+  enc_blk_nums: [4,4,4] 
+  dec_blk_nums: [4,4,4]
+  
+dataset:
+  test_1:
+    name: Kodak24
+    gt_path: /home/xteam_zdw/dataset/benchmarks/Kodak24
+
+  test_2:
+    name: CBSD68
+    gt_path: /home/xteam_zdw/dataset/benchmarks/CBSD68
+  test_3:
+    name: urban100
+    gt_path: /home/xteam_zdw/dataset/benchmarks/urban100
+
+
+path:
+  ckpt_path: ./ckpt
+  model_save_path: ./experiments
+  ckpt_resume_path: ~

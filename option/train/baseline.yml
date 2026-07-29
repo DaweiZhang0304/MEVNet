@@ -1,0 +1,38 @@
+
+
+model_name: baseline
+seed: 1
+gpu_id: [0]
+
+network_g:
+  img_channel: 3 
+  width: 64 
+  middle_blk_num: 4
+  refine_blk_num: 6
+  enc_blk_nums: [4,4,4] 
+  dec_blk_nums: [4,4,4]
+
+  
+train:
+  lr: !!float 2e-4
+  use_scheduler: True
+  gamma: 0.5
+  decay_step: 200
+  batch_size: 4 
+  max_steps: 1000
+  ckpt_steps: 100
+  num_workers: 4
+
+dataset:
+  gt_path: /home/xteam_zdw/dataset/DIV2K_train_HR
+  crop_size: 128
+  noise_type: gauss
+  noise_level: [5, 20]
+
+path:
+  ckpt_path: ./ckpt
+  model_save_path: ./experiments
+  ckpt_resume_path: ~
+
+
+

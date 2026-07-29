@@ -1,0 +1,46 @@
+
+model_name: ntnet
+seed: 1
+gpu_id: [6]
+
+network_g:
+  img_channel: 3 
+  width: 32
+  middle_blk_num: 8
+  noise_injection_level: 100
+
+
+denoiser_config:
+  img_channel: 3 
+  width: 64 
+  middle_blk_num: 4
+  refine_blk_num: 6
+  enc_blk_nums: [4,4,4] 
+  dec_blk_nums: [4,4,4]
+
+dataset:
+  test_1:
+    name: CC
+    HQ_path: /home/xteam_zdw/dataset/benchmarks/CC_test/gt
+    LQ_path: /home/xteam_zdw/dataset/benchmarks/CC_test/noisy
+
+  test_2:
+    name: HighISO
+    HQ_path: /home/xteam_zdw/dataset/benchmarks/HighISO_test/gt
+    LQ_path: /home/xteam_zdw/dataset/benchmarks/HighISO_test/noisy
+
+  test_3:
+    name: PolyU
+    HQ_path: /home/xteam_zdw/dataset/benchmarks/PolyU/gt
+    LQ_path: /home/xteam_zdw/dataset/benchmarks/PolyU/noisy
+  
+  test_4:
+    name: NIND
+    HQ_path: /home/xteam_zdw/dataset/benchmarks/NIND_benchmark_patch/gt
+    LQ_path: /home/xteam_zdw/dataset/benchmarks/NIND_benchmark_patch/noisy
+
+
+path:
+  ckpt_path: ./ckpt
+  model_save_path: ./experiments
+  ckpt_resume_path: ~
